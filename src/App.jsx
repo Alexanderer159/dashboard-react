@@ -1,5 +1,5 @@
 import './App.css'
-import Lista from './lista'
+import SearchBar from './search-bar/search-bar'
 
 function App() {
 
@@ -8,7 +8,19 @@ function App() {
 
   return (
     <>
-      
+      <div className='container-fluid'>
+        <div className='w-100'>
+          <SearchBar companyName="Nombre Compañia"/>
+        </div>
+        <div className='container-fluid'>
+          <div className='col-4'>
+            
+          </div>
+          <div className='col-8'>
+
+          </div>
+        </div>
+      </div>
     </>
   )
 }
