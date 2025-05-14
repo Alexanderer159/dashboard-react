@@ -13,3 +13,11 @@
     color: #141B25;
   }
 }
+
+#texto-sesion{
+  color: #636a75;
+  cursor: pointer;
+  &&:hover{
+    text-decoration: underline;
+  }
+}

@@ -9,16 +9,11 @@ function App() {
   return (
     <>
       <div className='container-fluid'>
-        <div className='w-100'>
-          <SearchBar companyName="Nombre Compañia"/>
-        </div>
-        <div className='container-fluid'>
-          <div className='col-4'>
-            
-          </div>
-          <div className='col-8'>
 
-          </div>
+        <SearchBar companyName="Nombre Compañia" sessionStatus="Sign Out"/>
+        
+        <div className='row'>
+          
         </div>
       </div>
     </>
