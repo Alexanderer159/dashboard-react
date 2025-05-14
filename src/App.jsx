@@ -1,5 +1,5 @@
 import './App.css'
-import Lista from './lista'
+import SearchBar from './search-bar/search-bar'
 
 function App() {
 
@@ -8,7 +8,14 @@ function App() {
 
   return (
     <>
-      
+      <div className='container-fluid'>
+
+        <SearchBar companyName="Nombre Compañia" sessionStatus="Sign Out"/>
+        
+        <div className='row'>
+          
+        </div>
+      </div>
     </>
   )
 }

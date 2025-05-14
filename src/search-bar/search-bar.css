@@ -1,0 +1,23 @@
+.componente-barra{
+  background-color: #141B25;
+  color: white;
+}
+
+.search-input{
+  background-color: #323A46;
+  border: none;
+  width: 100%;
+  height: 3rem;
+  &&:focus{
+    background-color: white;
+    color: #141B25;
+  }
+}
+
+#texto-sesion{
+  color: #636a75;
+  cursor: pointer;
+  &&:hover{
+    text-decoration: underline;
+  }
+}
