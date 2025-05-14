@@ -1,0 +1,10 @@
+.item {
+    justify-content: space-between;
+    color:white;
+    background-color: rgb(44, 44, 91);
+}
+
+.item p {
+    margin: 0;
+    padding: 0;
+}
