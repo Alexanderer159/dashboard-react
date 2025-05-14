@@ -1,0 +1,18 @@
+.botones{
+  width: 100px;
+  background-color: #313D4F;
+  border: none;
+  color: #b0b4bb;
+  &&:hover{
+    background-color: #b0b4bb;
+    color: #313D4F;
+  }
+}
+
+#descripcion-proyecto{
+  height: 60px;
+}
+
+.contenedores-formulario{
+  min-height: 250px;
+}

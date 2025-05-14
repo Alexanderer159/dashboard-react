@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <div className='container-fluid'>
+      <div className='container-fluid' id="app-container">
 
         <SearchBar companyName="Nombre Compañia" sessionStatus="Sign Out"/>
         
@@ -23,7 +23,7 @@ function App() {
             <div className='row'>
               asfasfadgsdhgsdhsdfsdfghsdgsdfgsgdfh
             </div>
-            <NewProjectForm/>
+            {/* <NewProjectForm/> */}
           </div>
         </div>
       </div>
