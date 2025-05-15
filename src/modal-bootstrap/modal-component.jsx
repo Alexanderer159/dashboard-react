@@ -1,5 +1,6 @@
 import NewProjectForm from '../addProyect-form/form-for-project.jsx'
 import { useState } from 'react'
+import "./modal-component.css"
 
 function ModalComponent ({obtenerDatos, listaDatos, obtenerLista}){
   const [titulo, setTitulo] = useState("")
@@ -16,8 +17,6 @@ function ModalComponent ({obtenerDatos, listaDatos, obtenerLista}){
     setBudget("")
     setDescripcion("")
   }
-
-  // obtenerDatos({ ...datosFormulario, [input.target.name]: input.target.value });
 
   const addLista = () => {
     const newProject = {
@@ -37,7 +36,7 @@ function ModalComponent ({obtenerDatos, listaDatos, obtenerLista}){
     <>
     <div className="modal fade" id="modalFormProject" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog modal-dialog-centered">
-        <div className="modal-content">
+        <div className="modal-content border-0 rounded-5">
           <div className="modal-header">
             <h1 className="modal-title fs-5" id="exampleModalLabel">Create Project</h1>
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -50,8 +49,8 @@ function ModalComponent ({obtenerDatos, listaDatos, obtenerLista}){
             budget={budget} obtenerBudget={setBudget}
             descripcion={descripcion} obtenerDescripcion={setDescripcion}/>
           </div>
-          <div className="modal-footer">
-            <div className='w-100 d-flex justify-content-center gap-3 align-items-center mt-3'>
+          <div className="modal-footer bg-dark">
+            <div className='foot w-100 d-flex justify-content-center gap-3 align-items-center mt-3'>
               <button id='boton-enviar' className='rounded botones' onClick={addLista}>Enviar</button>
               <button id='boton-reset' className='rounded botones' onClick={resetButton}>Reset</button>
             </div>

@@ -23,13 +23,13 @@ const handlerInputChange = (event)=>{
       <div className="row d-flex justify-content-center align-items-center">
 
         <div className='col-sm-4 contenedores-formulario'>
-          <InputField inputType="text" id="titulo-proyecto" placeholder="Título" value={titulo} funcionOnChange={handlerInputChange}/>
-          <InputField inputType="text" id="usuario-proyecto" placeholder="Usuario" value={autor} funcionOnChange={handlerInputChange}/>
-          <InputField inputType="date" id="fecha-proyecto" placeholder="00/00/0000" value={fecha} funcionOnChange={handlerInputChange}/>
-          <InputField inputType="number" id="budget-proyecto" placeholder="Presupuesto (5000)" value={budget} funcionOnChange={handlerInputChange}/>
-          <textarea id="descripcion-proyecto" className='elementos-input rounded mt-1' placeholder="Describe el proyecto" value={descripcion} onChange={handlerInputChange}></textarea>
+          <InputField inputType="text" id="titulo-proyecto" placeholder="Title" value={titulo} funcionOnChange={handlerInputChange}/>
+          <InputField inputType="text" id="usuario-proyecto" placeholder="Author" value={autor} funcionOnChange={handlerInputChange}/>
+          <InputField inputType="date" id="fecha-proyecto" placeholder="Date" value={fecha} funcionOnChange={handlerInputChange}/>
+          <InputField inputType="number" id="budget-proyecto" placeholder="Budget" value={budget} funcionOnChange={handlerInputChange}/>
+          <textarea id="descripcion-proyecto" className='input rounded mt-1 border-0' placeholder="Description" value={descripcion} onChange={handlerInputChange}></textarea>
         </div>
-        <div className='col-sm-8 p-4 d-flex justify-content-center align-items-center contenedores-formulario'>
+        <div className='col-sm-8 d-flex justify-content-center align-items-center contenedores-formulario'>
           <ProjectCard tituloProyecto={titulo} autor={autor} fecha={fecha} presupuesto={budget} descripcion={descripcion}/>
         </div>
 

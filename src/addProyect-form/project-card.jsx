@@ -5,13 +5,13 @@ function ProjectCard({tituloProyecto, autor, fecha, presupuesto, descripcion}){
   return (
     <>
       <div className='project-card'>
-        <h3>{tituloProyecto || "Título del proyecto"}</h3>
-        <div className='d-flex flex-row align-items-center justify-space-between gap-3 mt-3'>
-          <h5 className='text-break'>{autor || "Autor"}</h5>
-          <h6 className='text-break'>{presupuesto ? `${presupuesto} $` : "00000 $"}</h6>  
-          <h6 className='text-break'>{fecha || "01/01/1990"}</h6>  
+        <h3>{tituloProyecto || "Project's title"}</h3>
+        <div className='d-flex flex-column gap-2 mt-3'>
+          <h5 className='text-break'>{autor || "Author"}</h5>
+          <h5 className='text-break'>{fecha || "Date"}</h5>
+          <h5 className='text-break'>{presupuesto ? `${presupuesto} $` : "Budget"}</h5>
+          <p className='text-break mt-2'>{descripcion || "Project's Description"}</p>    
         </div>
-        <p className='text-break mt-2'>{descripcion || "Describe el proyecto"}</p>
       </div>
     </>
   )
