@@ -39,7 +39,7 @@ function ModalComponent ({obtenerDatos, listaDatos, obtenerLista}){
         <div className="modal-content border-0 rounded-5">
           <div className="modal-header">
             <h1 className="modal-title fs-5" id="exampleModalLabel">Create Project</h1>
-            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div className="modal-body">
             <NewProjectForm 

@@ -10,7 +10,7 @@ function ProjectCard({tituloProyecto, autor, fecha, presupuesto, descripcion}){
           <h5 className='text-break'>{autor || "Author"}</h5>
           <h5 className='text-break'>{fecha || "Date"}</h5>
           <h5 className='text-break'>{presupuesto ? `${presupuesto} $` : "Budget"}</h5>
-          <p className='text-break mt-2'>{descripcion || "Project's Description"}</p>    
+          <h5 className='text-break mt-2'>{descripcion || "Project's Description"}</h5>    
         </div>
       </div>
     </>
