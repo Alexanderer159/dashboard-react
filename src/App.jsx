@@ -1,13 +1,13 @@
 import NewProjectForm from './addProyect-form/form-for-project'
 import './App.css'
 import SearchBar from './search-bar/search-bar'
+import ListGenerator from './Generador-Lista'
 
 function App() {
   return (
     <>
       <div className='container-fluid' id="app-container">
         <SearchBar companyName="Nombre Compañia" sessionStatus="Sign Out" />
-
         <div className='row'>
           <div className='col-2 p-0'>
             <div className="sidebar d-flex flex-column vh-100 text-white p-3">
@@ -35,6 +35,7 @@ function App() {
             </div>
 
             {/* <NewProjectForm/> */}
+          <ListGenerator />
           </div>
         </div>
       </div>
