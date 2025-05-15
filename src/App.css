@@ -2,3 +2,29 @@
   background-color: #1B2431;
   color: white;
 }
+
+.sidebar {
+  height: 100vh;
+  background-color: #1B2431;
+  padding-top: 20px;
+}
+
+.sidebar .nav-link {
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #34495e;
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar .nav-link i {
+  margin-right: 10px;
+  font-size: 18px;
+}
