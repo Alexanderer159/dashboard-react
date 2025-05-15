@@ -43,7 +43,7 @@ const addLista = () => {
         <button className="btn btn-dark" onClick={addLista}>Add Listing</button>
       </div>
 
-      <Lista project="Project" date="Date" member="Name" budget="Budget" status="Status" action="Action" />
+      <Lista project="Project" date="Date" member="Member" budget="Budget" status="Status" action="Action" />
 
       {listas.map((props, index) => (<Lista key={index} {...props} />))}
     </>
