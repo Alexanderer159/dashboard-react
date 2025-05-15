@@ -1,0 +1,21 @@
+.modal-content {
+     color:white;
+    background-color: rgba(26, 41, 62);
+}
+
+.btn-close{
+    color:white;
+}
+
+.modal-header {
+    color:white;
+    background-color: rgba(26, 41, 62);
+}
+.modal-body {
+    color:white;
+    background-color: rgba(26, 41, 62);
+}
+.modal-footer {
+    color:white;
+    background-color: rgba(26, 41, 62);
+}

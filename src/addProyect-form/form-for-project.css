@@ -1,14 +1,12 @@
 .botones{
   width: 100px;
-  background-color: #313D4F;
+  height: 40px;
+  background-color: #203149;
   border: none;
-  color: #b0b4bb;
+  color: white;
   &&:hover{
-    background-color: #b0b4bb;
-    color: #313D4F;
-  }
-  &&::placeholder{
-    color: #b0b4bb;
+    background-color: #2f2f2f;
+    color: White;
   }
 }
 
@@ -21,5 +19,16 @@
 }
 
 #fecha-proyecto{
-  color: #b0b4bb;
+  color: white;
+}
+
+.input{
+  width: 100%;
+  background-color: #323A46;
+  border: none;
+  color:white;
+}
+
+textarea::placeholder{
+  color: white;
 }

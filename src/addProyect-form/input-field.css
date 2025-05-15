@@ -3,8 +3,8 @@
   background-color: #323A46;
   border: none;
   height: 35px;
-  &&:focus{
-    background-color: white;
-    color: #323A46;
-  }
+  color:white;
+}
+input::placeholder {
+  color: white;
 }
