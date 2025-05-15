@@ -1,11 +1,9 @@
 import NewProjectForm from './addProyect-form/form-for-project'
 import './App.css'
 import SearchBar from './search-bar/search-bar'
+import ListGenerator from './Generador-Lista'
 
 function App() {
-
-//funcion para crear nuevos componentes "lista" con respectivos props
-//<Lista nombre="Dashboard-React" date="6/6/6" member="Alejandro De Yavorsky" budget="10$" status="Ayuda" action="Delete"/>
 
   return (
     <>
@@ -16,14 +14,15 @@ function App() {
         <div className='row'>
           <div className='col-2'>
             {/* Navbar */}
-            asdfsdfsdfsdgsdgsdgsdsd
+            Navbar
           </div>
           <div className='col-10'>
             {/* Componentes: cuadros de colores y zona de la lista en dos div con className row */}
             <div className='row'>
-              asfasfadgsdhgsdhsdfsdfghsdgsdfgsgdfh
+              Cuadros de colores
             </div>
             {/* <NewProjectForm/> */}
+          <ListGenerator />
           </div>
         </div>
       </div>

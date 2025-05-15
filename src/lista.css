@@ -1,10 +1,18 @@
 .item {
     justify-content: space-between;
     color:white;
-    background-color: rgb(44, 44, 91);
+    background-color: rgba(26, 41, 62, 0.8);
 }
 
 .item p {
     margin: 0;
     padding: 0;
+}
+
+.action {
+  color: #636a75;
+  cursor: pointer;
+  &&:hover{
+    text-decoration: underline;
+  }
 }
