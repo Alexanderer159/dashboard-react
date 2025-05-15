@@ -7,6 +7,9 @@
     background-color: #b0b4bb;
     color: #313D4F;
   }
+  &&::placeholder{
+    color: #b0b4bb;
+  }
 }
 
 #descripcion-proyecto{
@@ -15,4 +18,8 @@
 
 .contenedores-formulario{
   min-height: 250px;
+}
+
+#fecha-proyecto{
+  color: #b0b4bb;
 }

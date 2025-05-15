@@ -1,0 +1,66 @@
+import NewProjectForm from '../addProyect-form/form-for-project.jsx'
+import { useState } from 'react'
+
+function ModalComponent ({obtenerDatos, listaDatos, obtenerLista}){
+  const [titulo, setTitulo] = useState("")
+  const [autor, setAutor] = useState("")
+  const [fecha, setFecha] = useState("")
+  const [budget, setBudget] = useState("")
+  const [descripcion, setDescripcion] = useState("")
+
+
+  const resetButton = () => {
+    setTitulo("")
+    setAutor("")
+    setFecha("")
+    setBudget("")
+    setDescripcion("")
+  }
+
+  // obtenerDatos({ ...datosFormulario, [input.target.name]: input.target.value });
+
+  const addLista = () => {
+    const newProject = {
+      project: titulo,
+      date: fecha,
+      member: autor,
+      budget: budget,
+      status: 'WIP',
+      action: 'Dropdown...'
+    }
+
+    obtenerDatos(newProject);
+    obtenerLista([...listaDatos, newProject]);
+  };
+
+  return(
+    <>
+    <div className="modal fade" id="modalFormProject" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal-dialog modal-dialog-centered">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h1 className="modal-title fs-5" id="exampleModalLabel">Create Project</h1>
+            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div className="modal-body">
+            <NewProjectForm 
+            titulo={titulo} obtenerTitulo={setTitulo}
+            autor={autor} obtenerAutor={setAutor}
+            fecha={fecha} obtenerFecha={setFecha}
+            budget={budget} obtenerBudget={setBudget}
+            descripcion={descripcion} obtenerDescripcion={setDescripcion}/>
+          </div>
+          <div className="modal-footer">
+            <div className='w-100 d-flex justify-content-center gap-3 align-items-center mt-3'>
+              <button id='boton-enviar' className='rounded botones' onClick={addLista}>Enviar</button>
+              <button id='boton-reset' className='rounded botones' onClick={resetButton}>Reset</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </>
+  )
+}
+
+export default ModalComponent
