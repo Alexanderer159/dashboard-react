@@ -1,9 +1,25 @@
-import NewProjectForm from './addProyect-form/form-for-project'
 import './App.css'
 import SearchBar from './search-bar/search-bar'
 import ListGenerator from './Generador-Lista'
+import ModalComponent from './modal-bootstrap/modal-component'
+import { useState, useEffect } from 'react'
 
 function App() {
+  const [formData, setFormData] = useState({
+    project: '',
+    date: '',
+    member: '',
+    budget: '',
+    status: '',
+    action: ''
+  });
+
+  const [listas, setListas] = useState([]);
+
+  useEffect(()=>{
+    console.log(listas);
+    
+  }, [listas])
   return (
     <>
       <div className='container-fluid' id="app-container">
@@ -34,8 +50,8 @@ function App() {
               <p>Zona de contenido principal</p>
             </div>
 
-            {/* <NewProjectForm/> */}
-          <ListGenerator />
+          <ListGenerator listaDatos={listas}/>
+          <ModalComponent datosFormulario={formData} obtenerDatos={setFormData} listaDatos={listas} obtenerLista={setListas}/>
           </div>
         </div>
       </div>

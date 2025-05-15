@@ -8,7 +8,7 @@ function Lista(props) {
       <p>{props.project}</p> 
       <p>{props.date}</p> 
       <p>{props.member}</p> 
-      <p>{props.budget}</p> 
+      <p>{`${props.budget} $`}</p> 
       <p>{props.status}</p> 
       <p className="action">{props.action}</p>
     </div>
