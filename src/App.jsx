@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 
 function App() {
   const [formData, setFormData] = useState({
-    id: '',
+    key: '',
     project: '',
     date: '',
     member: '',
@@ -16,6 +16,11 @@ function App() {
   });
 
   const [listas, setListas] = useState([]);
+
+  const handleDelete = (id)=>{
+    const filteredDataList = listas.filter((data, index) => index !== id)
+    setListas(filteredDataList)
+  }
 
   useEffect(() => {
     console.log(listas);
@@ -104,7 +109,7 @@ function App() {
               </div>
             </div>
 
-            <ListGenerator listaDatos={listas} />
+            <ListGenerator listaDatos={listas} setLista={setListas} handleDelete={handleDelete}/>
             <ModalComponent
               datosFormulario={formData}
               obtenerDatos={setFormData}

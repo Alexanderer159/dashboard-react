@@ -1,7 +1,7 @@
 import Lista from "./lista"
 import "./Generador-Lista.css"
 
-function ListGenerator({listaDatos}) {
+function ListGenerator({listaDatos, handleDelete}) {  
 
   return (
     <>
@@ -20,7 +20,16 @@ function ListGenerator({listaDatos}) {
         <p>Action</p>
       </div>
 
-      {listaDatos.map((props, index) => (<Lista key={index} {...props} />))}
+      {listaDatos.map((props, index) => (
+        <Lista key={props.key} 
+        project={props.project}
+        date={props.date}
+        member={props.member}
+        budget={props.budget}
+        status={props.status} 
+        id={index} 
+        handleDelete={handleDelete}/>
+      ))}
     </>
   );
 }
