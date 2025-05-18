@@ -1,6 +1,7 @@
 import NewProjectForm from '../addProyect-form/form-for-project.jsx'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import "./modal-component.css"
+import uuid from 'react-uuid'
 
 function ModalComponent ({obtenerDatos, listaDatos, obtenerLista}){
   const [titulo, setTitulo] = useState("")
@@ -8,7 +9,12 @@ function ModalComponent ({obtenerDatos, listaDatos, obtenerLista}){
   const [fecha, setFecha] = useState("")
   const [budget, setBudget] = useState("")
   const [descripcion, setDescripcion] = useState("")
-
+  const [key, setKey] = useState("");
+    
+  const uuidFromReactUUID = () => {
+    const newUUID = uuid()
+    setKey(newUUID)
+  }
 
   const resetButton = () => {
     setTitulo("")
@@ -19,18 +25,24 @@ function ModalComponent ({obtenerDatos, listaDatos, obtenerLista}){
   }
 
   const addLista = () => {
+    uuidFromReactUUID()
     const newProject = {
+      key: key,
       project: titulo,
       date: fecha,
       member: autor,
       budget: budget,
       status: 'WIP',
-      action: 'Dropdown...'
+      description: descripcion
     }
 
     obtenerDatos(newProject);
     obtenerLista([...listaDatos, newProject]);
   };
+
+  useEffect(()=>{
+    uuidFromReactUUID()
+  }, [])
 
   return(
     <>

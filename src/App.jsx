@@ -2,23 +2,25 @@ import './App.css'
 import SearchBar from './search-bar/search-bar'
 import ListGenerator from './Generador-Lista'
 import ModalComponent from './modal-bootstrap/modal-component'
-import { useState, useEffect } from 'react'
+import { useState} from 'react'
 
 function App() {
   const [formData, setFormData] = useState({
+    key: '',
     project: '',
     date: '',
     member: '',
     budget: '',
     status: '',
-    action: ''
+    description: ''
   });
 
   const [listas, setListas] = useState([]);
 
-  useEffect(() => {
-    console.log(listas);
-  }, [listas]);
+  const handleDelete = (id)=>{
+    const filteredDataList = listas.filter((data, index) => index !== id)
+    setListas(filteredDataList)
+  }
 
   return (
     <>
@@ -103,7 +105,7 @@ function App() {
               </div>
             </div>
 
-            <ListGenerator listaDatos={listas} />
+            <ListGenerator listaDatos={listas} setLista={setListas} handleDelete={handleDelete}/>
             <ModalComponent
               datosFormulario={formData}
               obtenerDatos={setFormData}
