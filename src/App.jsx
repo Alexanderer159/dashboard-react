@@ -2,7 +2,7 @@ import './App.css'
 import SearchBar from './search-bar/search-bar'
 import ListGenerator from './Generador-Lista'
 import ModalComponent from './modal-bootstrap/modal-component'
-import { useState, useEffect } from 'react'
+import { useState} from 'react'
 
 function App() {
   const [formData, setFormData] = useState({
@@ -21,10 +21,6 @@ function App() {
     const filteredDataList = listas.filter((data, index) => index !== id)
     setListas(filteredDataList)
   }
-
-  useEffect(() => {
-    console.log(listas);
-  }, [listas]);
 
   return (
     <>
