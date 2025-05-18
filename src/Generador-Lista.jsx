@@ -11,7 +11,14 @@ function ListGenerator({listaDatos}) {
         </button>
       </div>
 
-      <Lista project="Project" date="Date" member="Member" budget="Budget" status="Status" action="Action" />
+      <div className="item d-flex flex-row align-items-center m-2 p-3 fs-5 rounded-1">
+        <p>Project</p> 
+        <p>Date</p> 
+        <p>Member</p> 
+        <p>Budget</p> 
+        <p>Status</p> 
+        <p>Action</p>
+      </div>
 
       {listaDatos.map((props, index) => (<Lista key={index} {...props} />))}
     </>
