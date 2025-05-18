@@ -6,12 +6,13 @@ import { useState, useEffect } from 'react'
 
 function App() {
   const [formData, setFormData] = useState({
+    id: '',
     project: '',
     date: '',
     member: '',
     budget: '',
     status: '',
-    action: ''
+    description: ''
   });
 
   const [listas, setListas] = useState([]);

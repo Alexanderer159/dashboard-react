@@ -13,13 +13,13 @@ function Lista(props) {
       <p>{props.member}</p> 
       <p>{props.budget}</p> 
       <p>{props.status}</p> 
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <div className="dropdown">
+        <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           Action
         </button>
-        <ul class="dropdown-menu">
-          <li><button class="dropdown-item">Descripción</button></li>
-          <li><button class="dropdown-item" onClick={handleDelete}>Delete Project</button></li>
+        <ul className="dropdown-menu">
+          <li><button className="dropdown-item">Descripción</button></li>
+          <li><button className="dropdown-item" onClick={handleDelete}>Delete Project</button></li>
         </ul>
       </div>
     </div>

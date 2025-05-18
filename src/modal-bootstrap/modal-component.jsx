@@ -1,6 +1,8 @@
 import NewProjectForm from '../addProyect-form/form-for-project.jsx'
 import { useState } from 'react'
 import "./modal-component.css"
+import uuid from 'react-uuid'
+import { LONG } from 'mysql/lib/protocol/constants/types.js'
 
 function ModalComponent ({obtenerDatos, listaDatos, obtenerLista}){
   const [titulo, setTitulo] = useState("")
@@ -8,6 +10,14 @@ function ModalComponent ({obtenerDatos, listaDatos, obtenerLista}){
   const [fecha, setFecha] = useState("")
   const [budget, setBudget] = useState("")
   const [descripcion, setDescripcion] = useState("")
+  const [id, setId] = useState("");
+    
+  const uuidFromReactUUID = () => {
+    const newUUID = uuid()
+    setId(newUUID)
+    console.log(id);
+    
+  }
 
 
   const resetButton = () => {
@@ -19,13 +29,15 @@ function ModalComponent ({obtenerDatos, listaDatos, obtenerLista}){
   }
 
   const addLista = () => {
+    uuidFromReactUUID()
     const newProject = {
+      id: id,
       project: titulo,
       date: fecha,
       member: autor,
       budget: budget,
       status: 'WIP',
-      action: 'Dropdown...'
+      description: descripcion
     }
 
     obtenerDatos(newProject);

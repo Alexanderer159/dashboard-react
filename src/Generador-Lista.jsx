@@ -6,7 +6,7 @@ function ListGenerator({listaDatos}) {
   return (
     <>
       <div className="form d-flex m-2">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalFormProject">
+        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalFormProject">
           New Project
         </button>
       </div>
