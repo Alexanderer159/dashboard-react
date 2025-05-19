@@ -1,6 +1,8 @@
-#app-container{
+#app-container {
   background-color: #1B2431;
   color: white;
+  height: 100vh;
+  overflow: hidden; 
 }
 
 .sidebar {
@@ -27,4 +29,11 @@
 .sidebar .nav-link i {
   margin-right: 10px;
   font-size: 18px;
+}
+
+.col-10 {
+  background-color: #1B2431;
+  min-height: 100vh;
+  padding: 20px;
+  overflow-y: auto;
 }
