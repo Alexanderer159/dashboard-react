@@ -10,6 +10,32 @@ app.get('/projects', (req, res) => {
   res.json(projects);
 });
 
+// Obtener la lista de proyectos por índice
+app.get('/projects/:index', (req, res) => {
+  const id = parseInt(req.params.index);
+  const proyectoEncontrado = projects.find((proyecto, index) => index === id);
+  if (!proyectoEncontrado) return res.status(404).send('Error 404: Proyecto no encontrado');
+  res.json(proyectoEncontrado);
+})
+
+// Otro URL param
+app.get('/saluda', (req, res) => {
+  const saludo = `
+    <h1>Hola</h1>
+    <p>Desde el servidor ExpressJS</p>
+    `
+  res.send(saludo)
+});
+
+app.get('/saluda/:nombre', (req, res) => {
+  const nombreQueVieneDeLaURL = req.params.nombre;
+  const saludo = `
+    <h1>Hola ${nombreQueVieneDeLaURL}</h1>
+    <p>Desde el servidor ExpressJS</p>
+    `
+  res.send(saludo)
+});
+
 // Crear un nuevo proyecto
 app.post('/projects', (req, res) => {
   const newProject = req.body;
