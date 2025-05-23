@@ -5,17 +5,16 @@ import { traerLista, borrarRegistro } from './funciones-servidor/funciones-servi
 // Aun sin usar actualizarRegistro de funciones-servidor
 
 function App() {
-  const dataLayout = {
-    key: '',
-    project: '',
-    date: '',
-    member: '',
-    budget: '',
-    status: '',
-    description: ''
-  }
+  // const dataLayout = {
+  //   key: '',
+  //   project: '',
+  //   date: '',
+  //   member: '',
+  //   budget: '',
+  //   status: '',
+  //   description: ''
+  // }
 
-  const [formData, setFormData] = useState(dataLayout);
   const [listas, setListas] = useState([]);
   const [totalBudget, setTotalBudget] = useState(100000);
 
@@ -47,8 +46,6 @@ function App() {
   return (
     <DashboardLayout listaDatos={listas} 
       setlistas={setListas}
-      formdata={formData} 
-      setformdata={setFormData}
       onDelete={handleDelete}
       totalbudget={totalBudget}
     />

@@ -3,8 +3,7 @@ import ListGenerator from './Generador-Lista';
 import ModalComponent from './modal-bootstrap/modal-component';
 
 const DashboardLayout = (props) => {
-  const {listaDatos, setlistas, 
-    formdata, setformdata, 
+  const {listaDatos, setlistas,  
     totalbudget, onDelete} = props
   
   return (
@@ -34,7 +33,6 @@ const DashboardLayout = (props) => {
 
           <ModalComponent
             totalbudget={totalbudget}
-            obtenerDatosForm={setformdata}
           />
 
           <ListGenerator
