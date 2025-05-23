@@ -1,8 +1,9 @@
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DashboardLayout from './DashboardLayout';
 import ListGenerator from './Generador-Lista';
 import ModalComponent from './modal-bootstrap/modal-component';
+import { traerLista, crearRegistro, actualizarRegistro, borrarRegistro } from './funciones-servidor/funciones-servidor.js'
 
 function App() {
   const [formData, setFormData] = useState({
@@ -21,6 +22,16 @@ function App() {
     const filteredDataList = listas.filter((_, index) => index !== id);
     setListas(filteredDataList);
   };
+
+  useEffect(() => {
+    const obtenerLista = async () => {
+      const listaDesdeAPI = await traerLista();
+      setListas(listaDesdeAPI);
+    }
+    obtenerLista();
+    console.log(listas);
+    
+  }, [listas])
 
   return (
     <DashboardLayout>

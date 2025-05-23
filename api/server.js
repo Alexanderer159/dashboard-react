@@ -6,7 +6,7 @@ app.use(cors());
 app.use(express.json());
 
 // Almacenamiento en memoria
-let projects = [];
+let projects = [{ test: "datos de prueba" }];
 
 // Obtener la lista de proyectos
 app.get('/projects', (req, res) => {
