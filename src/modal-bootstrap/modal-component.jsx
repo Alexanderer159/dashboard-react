@@ -5,7 +5,7 @@ import uuid from 'react-uuid'
 import { crearRegistro } from '../funciones-servidor/funciones-servidor.js'
 
 // props sin fetch: {obtenerDatos, listaDatos, obtenerLista, datosFormulario}
-function ModalComponent ({listaDatos, obtenerLista, datosFormulario, obtenerDatos,  totalBudgetToModal, setTotalBudget}){
+function ModalComponent ({ datosFormulario, obtenerDatos }){
   const [titulo, setTitulo] = useState("")
   const [autor, setAutor] = useState("")
   const [fecha, setFecha] = useState("")

@@ -5,8 +5,7 @@ import ModalComponent from './modal-bootstrap/modal-component';
 const DashboardLayout = (props) => {
   const {listaDatos, setlistas, 
     formdata, setformdata, 
-    totalbudget, settotalbudget,
-    onDelete} = props
+    totalbudget, onDelete} = props
   
   return (
     <div className="container-fluid" id="app-container">
@@ -36,10 +35,6 @@ const DashboardLayout = (props) => {
           <ModalComponent
             datosFormulario={formdata}
             obtenerDatosForm={setformdata}
-            listaDatos={listaDatos}
-            obtenerLista={setlistas}
-            totalBudgetToModal={totalbudget}
-            setTotalBudget={settotalbudget}
           />
 
           <ListGenerator
