@@ -33,7 +33,7 @@ const DashboardLayout = (props) => {
           </div>
 
           <ModalComponent
-            datosFormulario={formdata}
+            totalbudget={totalbudget}
             obtenerDatosForm={setformdata}
           />
 

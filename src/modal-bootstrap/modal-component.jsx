@@ -4,8 +4,7 @@ import "./modal-component.css"
 import uuid from 'react-uuid'
 import { crearRegistro } from '../funciones-servidor/funciones-servidor.js'
 
-// props sin fetch: {obtenerDatos, listaDatos, obtenerLista, datosFormulario}
-function ModalComponent ({ datosFormulario, obtenerDatos }){
+function ModalComponent ({totalbudget}){
   const [titulo, setTitulo] = useState("")
   const [autor, setAutor] = useState("")
   const [fecha, setFecha] = useState("")
@@ -27,6 +26,8 @@ function ModalComponent ({ datosFormulario, obtenerDatos }){
   }
 
   const addLista = () => {
+    if(titulo === "" || fecha === "" || autor === "" || budget === "" || descripcion === "") return alert("Rellena todos los campos!");
+    if(budget > totalbudget) return alert("No hay dinero! 😭");
     uuidFromReactUUID()
     const newProject = {
       key: key,
@@ -38,12 +39,8 @@ function ModalComponent ({ datosFormulario, obtenerDatos }){
       description: descripcion
     }
     
-    obtenerDatos(newProject)
-    console.log(datosFormulario);
-    crearRegistro(datosFormulario)
+    crearRegistro(newProject)
     location.reload() // Solución Temporal Cutre
-    // setDatosFormulario(newProject);  FORMA SIN API
-    // obtenerLista([...listaDatos, newProject]);
   };
 
   useEffect(()=>{
