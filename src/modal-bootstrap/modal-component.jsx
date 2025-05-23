@@ -2,8 +2,10 @@ import NewProjectForm from '../addProyect-form/form-for-project.jsx'
 import { useEffect, useState } from 'react'
 import "./modal-component.css"
 import uuid from 'react-uuid'
+import { crearRegistro } from '../funciones-servidor/funciones-servidor.js'
 
-function ModalComponent ({obtenerDatos, listaDatos, obtenerLista}){
+// props sin fetch: {obtenerDatos, listaDatos, obtenerLista, datosFormulario}
+function ModalComponent ({listaDatos, obtenerLista, datosFormulario, obtenerDatos,  totalBudgetToModal, setTotalBudget}){
   const [titulo, setTitulo] = useState("")
   const [autor, setAutor] = useState("")
   const [fecha, setFecha] = useState("")
@@ -35,9 +37,13 @@ function ModalComponent ({obtenerDatos, listaDatos, obtenerLista}){
       status: 'WIP',
       description: descripcion
     }
-
-    obtenerDatos(newProject);
-    obtenerLista([...listaDatos, newProject]);
+    
+    obtenerDatos(newProject)
+    console.log(datosFormulario);
+    crearRegistro(datosFormulario)
+    location.reload() // Solución Temporal Cutre
+    // setDatosFormulario(newProject);  FORMA SIN API
+    // obtenerLista([...listaDatos, newProject]);
   };
 
   useEffect(()=>{
@@ -46,7 +52,7 @@ function ModalComponent ({obtenerDatos, listaDatos, obtenerLista}){
 
   return(
     <>
-    <div className="modal fade" id="modalFormProject" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div className="modal fade" id="modalFormProject" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content border-0 rounded-5">
           <div className="modal-header">
@@ -55,11 +61,12 @@ function ModalComponent ({obtenerDatos, listaDatos, obtenerLista}){
           </div>
           <div className="modal-body">
             <NewProjectForm 
-            titulo={titulo} obtenerTitulo={setTitulo}
-            autor={autor} obtenerAutor={setAutor}
-            fecha={fecha} obtenerFecha={setFecha}
-            budget={budget} obtenerBudget={setBudget}
-            descripcion={descripcion} obtenerDescripcion={setDescripcion}/>
+              titulo={titulo} obtenerTitulo={setTitulo}
+              autor={autor} obtenerAutor={setAutor}
+              fecha={fecha} obtenerFecha={setFecha}
+              budget={budget} obtenerBudget={setBudget}
+              descripcion={descripcion} obtenerDescripcion={setDescripcion}
+            />
           </div>
           <div className="modal-footer bg-dark">
             <div className='foot w-100 d-flex justify-content-center gap-3 align-items-center mt-3'>

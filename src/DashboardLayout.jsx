@@ -1,35 +1,13 @@
-import React, { useState } from "react";
 import SearchBar from "./search-bar/search-bar";
-import ListGenerator from "./Generador-Lista";
+import ListGenerator from './Generador-Lista';
+import ModalComponent from './modal-bootstrap/modal-component';
 
-const DashboardLayout = () => {
-  const [listaDatos, setListaDatos] = useState([]);
-  const [budget, setBudget] = useState(100000);
-  const [formData, setFormData] = useState({
-    project: "", date: "", member: "", budget: "", status: ""
-  });
-
-  const handleChange = e =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    const cost = parseFloat(formData.budget);
-    if (budget < cost) return alert("Not enough budget!");
-
-    setListaDatos([...listaDatos, { ...formData }]);
-    setBudget(budget - cost);
-    setFormData({ project: "", date: "", member: "", budget: "", status: "" });
-
-    bootstrap.Modal.getInstance(document.getElementById("modalFormProject"))?.hide();
-  };
-
-  const handleDelete = id => {
-    const refund = parseFloat(listaDatos[id].budget);
-    setListaDatos(listaDatos.filter((_, i) => i !== id));
-    setBudget(budget + refund);
-  };
-
+const DashboardLayout = (props) => {
+  const {listaDatos, setlistas, 
+    formdata, setformdata, 
+    totalbudget, settotalbudget,
+    onDelete} = props
+  
   return (
     <div className="container-fluid" id="app-container">
       <SearchBar companyName="Nombre Compañia" sessionStatus="Sign Out" />
@@ -51,34 +29,25 @@ const DashboardLayout = () => {
           <div className="row mt-4">
             <DashboardCard bg="primary" label="All Products" value="5,000" />
             <DashboardCard bg="success" label="Team Members" value="35" />
-            <DashboardCard bg="warning" label="Budget" value={`$${budget.toLocaleString()}`} />
+            <DashboardCard bg="warning" label="Budget" value={`$${totalbudget.toLocaleString()}`} />
             <DashboardCard bg="danger" label="New Customers" value="120" />
           </div>
 
-          <ListGenerator listaDatos={listaDatos} handleDelete={handleDelete} />
-        </div>
-      </div>
+          <ModalComponent
+            datosFormulario={formdata}
+            obtenerDatosForm={setformdata}
+            listaDatos={listaDatos}
+            obtenerLista={setlistas}
+            totalBudgetToModal={totalbudget}
+            setTotalBudget={settotalbudget}
+          />
 
-      <div className="modal fade" id="modalFormProject" tabIndex="-1">
-        <div className="modal-dialog">
-          <form className="modal-content" onSubmit={handleSubmit}>
-            <div className="modal-header">
-              <h5 className="modal-title">New Project</h5>
-              <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div className="modal-body">
-              {["project", "date", "member", "budget", "status"].map((field, i) => (
-                <input key={i} className="form-control mb-2"
-                  type={field === "date" ? "date" : field === "budget" ? "number" : "text"}
-                  name={field} placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
-                  value={formData[field]} onChange={handleChange} required />
-              ))}
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" className="btn btn-primary">Save Project</button>
-            </div>
-          </form>
+          <ListGenerator
+            listaDatos={listaDatos}
+            setLista={setlistas}
+            handleDelete={onDelete}
+          />
+
         </div>
       </div>
     </div>
