@@ -5,8 +5,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const mockData = { key: '2352342zsx423', project: 'Proyecto de prueba', date: '2025-06-23', member: 'Adri', budget: '34573', status: 'WIP', description: 'Esto es un proyecto de prueba.' }
+
 // Almacenamiento en memoria
-let projects = [{ test: "datos de prueba" }];
+let projects = [mockData];
 
 // Obtener la lista de proyectos
 app.get('/projects', (req, res) => {

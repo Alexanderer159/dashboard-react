@@ -28,6 +28,7 @@ function ListGenerator({listaDatos, handleDelete}) {
         budget={props.budget}
         status={props.status} 
         id={index} 
+        description={props.description}
         handleDelete={handleDelete}/>
       ))}
     </>
