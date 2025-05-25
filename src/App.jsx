@@ -25,8 +25,8 @@ function App() {
     setTotalBudget((prevBudget) => prevBudget - cost);
   }
 
-  const handleDelete = (id) => {
-    borrarRegistro(id)
+  const handleDelete = async (id) => {
+    await borrarRegistro(id)
     console.log(`Deleted item with id: ${id}`);
     location.reload() // Solución Temporal Cutre
   };
