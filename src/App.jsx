@@ -25,17 +25,18 @@ function App() {
     setTotalBudget((prevBudget) => prevBudget - cost);
   }
 
+  const obtenerLista = async () => {
+    const listaDesdeAPI = await traerLista();
+    setListas(listaDesdeAPI);
+  }
+
   const handleDelete = async (id) => {
     await borrarRegistro(id)
     console.log(`Deleted item with id: ${id}`);
-    location.reload() // Solución Temporal Cutre
+    await obtenerLista();
   };
 
   useEffect(() => {
-    const obtenerLista = async () => {
-      const listaDesdeAPI = await traerLista();
-      setListas(listaDesdeAPI);
-    }
     obtenerLista();
   }, [])
 

@@ -1,8 +1,8 @@
 import { useState } from "react"
 import InputField from "../addProyect-form/input-field"
-import { actualizarRegistro } from "../funciones-servidor/funciones-servidor"
+import { actualizarRegistro, traerLista } from "../funciones-servidor/funciones-servidor"
 
-function ModalForUpdate({elementId, dataFromAPI}){
+function ModalForUpdate({elementId, dataFromAPI, setlista}){
   const { key, project, date, member, budget, status, description } = dataFromAPI
 
   const [newTitle, setNewTitle] = useState(project)
@@ -23,6 +23,11 @@ function ModalForUpdate({elementId, dataFromAPI}){
     if(id === `updateDescription${elementId}`) setNewDescription(value)
   }
 
+  const obtenerLista = async () => {
+    const listaDesdeAPI = await traerLista();
+    setlista(listaDesdeAPI);
+  }
+
   const handleUpdate = async () => {
     const changes = {
       key: key, 
@@ -35,7 +40,7 @@ function ModalForUpdate({elementId, dataFromAPI}){
     }
 
     await actualizarRegistro(elementId, changes)
-    location.reload() // Solución Temporal Cutre
+    await obtenerLista()
   }
 
   return(

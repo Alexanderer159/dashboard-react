@@ -1,7 +1,7 @@
 import Lista from "./lista"
 import "./Generador-Lista.css"
 
-function ListGenerator({listaDatos, handleDelete}) {  
+function ListGenerator({listaDatos, setlista, handleDelete}) {  
 
   return (
     <>
@@ -31,6 +31,7 @@ function ListGenerator({listaDatos, handleDelete}) {
           id={index} 
           description={props.description}
           handleDelete={handleDelete}
+          setlista={setlista}
         />
       ))}
     </>

@@ -3,7 +3,7 @@ import "./lista.css"
 import ModalForUpdate from "./modal-bootstrap/update-project-modal"
  import { traerElementoPorId } from "./funciones-servidor/funciones-servidor"
 
-function Lista({project, date, member, budget, status, id, description, handleDelete}) {
+function Lista({project, date, member, budget, status, id, description, handleDelete, setlista}) {
   const [individualData, setIndividualData] = useState({})
 
   useEffect(()=>{
@@ -18,7 +18,7 @@ function Lista({project, date, member, budget, status, id, description, handleDe
 
   return (
     <>
-    <ModalForUpdate elementId={id} dataFromAPI={individualData}/>
+    <ModalForUpdate elementId={id} dataFromAPI={individualData} setlista={setlista}/>
     <div className="item d-flex flex-row align-items-center m-2 p-3 fs-5 rounded-1">
       <p>{project}</p> 
       <p>{date}</p> 

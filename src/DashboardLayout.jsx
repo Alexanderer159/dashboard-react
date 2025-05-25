@@ -33,6 +33,7 @@ const DashboardLayout = (props) => {
 
           <ModalComponent
             totalbudget={totalbudget}
+            setlistas={setlistas}
           />
 
           <ListGenerator

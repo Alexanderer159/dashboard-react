@@ -2,9 +2,9 @@ import NewProjectForm from '../addProyect-form/form-for-project.jsx'
 import { useEffect, useState } from 'react'
 import "./modal-component.css"
 import uuid from 'react-uuid'
-import { crearRegistro } from '../funciones-servidor/funciones-servidor.js'
+import { crearRegistro, traerLista } from '../funciones-servidor/funciones-servidor.js'
 
-function ModalComponent ({totalbudget}){
+function ModalComponent ({totalbudget, setlistas}){
   const [titulo, setTitulo] = useState("")
   const [autor, setAutor] = useState("")
   const [fecha, setFecha] = useState("")
@@ -15,6 +15,11 @@ function ModalComponent ({totalbudget}){
   const uuidFromReactUUID = () => {
     const newUUID = uuid()
     setKey(newUUID)
+  }
+
+  const obtenerLista = async () => {
+    const listaDesdeAPI = await traerLista();
+    setlistas(listaDesdeAPI);
   }
 
   const resetButton = () => {
@@ -40,7 +45,7 @@ function ModalComponent ({totalbudget}){
     }
     
     await crearRegistro(newProject)
-    location.reload() // Solución Temporal Cutre
+    await obtenerLista()
   };
 
   useEffect(()=>{
