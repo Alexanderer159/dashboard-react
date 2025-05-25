@@ -38,7 +38,7 @@ const DashboardLayout = (props) => {
 
           <ListGenerator
             listaDatos={listaDatos}
-            setLista={setlistas}
+            setlista={setlistas}
             handleDelete={onDelete}
           />
 
