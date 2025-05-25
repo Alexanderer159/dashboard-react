@@ -25,7 +25,7 @@ function ModalComponent ({totalbudget}){
     setDescripcion("")
   }
 
-  const addLista = () => {
+  const addLista = async () => {
     if(titulo === "" || fecha === "" || autor === "" || budget === "" || descripcion === "") return alert("Rellena todos los campos!");
     if(budget > totalbudget) return alert("No hay dinero! 😭");
     uuidFromReactUUID()
@@ -39,7 +39,7 @@ function ModalComponent ({totalbudget}){
       description: descripcion
     }
     
-    crearRegistro(newProject)
+    await crearRegistro(newProject)
     location.reload() // Solución Temporal Cutre
   };
 
