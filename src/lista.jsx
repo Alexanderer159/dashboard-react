@@ -7,8 +7,8 @@ function Lista({project, date, member, budget, status, id, description, handleDe
   const [individualData, setIndividualData] = useState({})
 
   useEffect(()=>{
-    //Esto no hacía falta, la solución era poner un id único a cada modal 🗿
-    console.log(id);
+    //Esto no hace falta, la solución era poner un id único a cada modal 🗿
+    //Me he dado cuenta tarde D:
     const listElementByID = async (id) => {
       const data = await traerElementoPorId(id)
       setIndividualData(data);
