@@ -2,7 +2,6 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import DashboardLayout from './DashboardLayout';
 import { traerLista, borrarRegistro } from './funciones-servidor/funciones-servidor.js'
-// Aun sin usar actualizarRegistro de funciones-servidor
 
 function App() {
   // const dataLayout = {
@@ -16,15 +15,17 @@ function App() {
   // }
 
   const [listas, setListas] = useState([]);
-  const [totalBudget, setTotalBudget] = useState(100000);
+  const initialBudget = 100000
+  const [totalBudget, setTotalBudget] = useState(initialBudget);
 
   const _budgetUpdater = () => {
+    setTotalBudget(initialBudget)
     const cost = listas.reduce((acc, value)=>{
       return acc + parseFloat(value.budget);
     }, 0)
     setTotalBudget((prevBudget) => prevBudget - cost);
   }
-
+  
   const obtenerLista = async () => {
     const listaDesdeAPI = await traerLista();
     setListas(listaDesdeAPI);
@@ -40,8 +41,7 @@ function App() {
     obtenerLista();
   }, [])
 
-  useEffect(()=>{
-    console.log(listas);
+  useEffect(() => {
     _budgetUpdater();
   }, [listas])
 

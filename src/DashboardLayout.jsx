@@ -27,7 +27,7 @@ const DashboardLayout = (props) => {
           <div className="row mt-4">
             <DashboardCard bg="primary" label="All Products" value="5,000" />
             <DashboardCard bg="success" label="Team Members" value="35" />
-            <DashboardCard bg="warning" label="Budget" value={`$${totalbudget.toLocaleString()}`} />
+            <DashboardCard bg="warning" label="Budget" value={`${totalbudget.toLocaleString()}`} />
             <DashboardCard bg="danger" label="New Customers" value="120" />
           </div>
 
