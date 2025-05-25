@@ -7,6 +7,15 @@ const traerLista = async () => {
   return data;
 }
 
+const traerElementoPorId = async (id) => {
+  const response = await fetch(`http://localhost:3000/projects/${id}`, {
+    method: "GET"
+  });
+
+  const data = await response.json();
+  return data;
+}
+
 const crearRegistro = async (datos) => {
   const response = await fetch("http://localhost:3000/projects", {
     method: "POST",
@@ -42,7 +51,7 @@ const borrarRegistro = async (id) => {
   return data;
 }
 
-export { traerLista, crearRegistro, actualizarRegistro, borrarRegistro };
+export { traerLista, crearRegistro, actualizarRegistro, borrarRegistro, traerElementoPorId };
 
 // const registro = {
 //   key: '42342sdf',
@@ -68,8 +77,10 @@ export { traerLista, crearRegistro, actualizarRegistro, borrarRegistro };
 //const registroActualizado = await actualizarRegistro(0, actualizacion);
 //const registroBorrado = await borrarRegistro(1);
 //const lista = await traerLista();
+// const elemento = await traerElementoPorId(2);
 
 //console.log(`POST: ${JSON.stringify(datosPasadosPost)}`);
 //console.log(`PUT: ${JSON.stringify(registroActualizado)}`);
 //console.log(`DELETE: ${JSON.stringify(registroBorrado)}`);
 //console.log(`GET => Lista: ${JSON.stringify(lista)}`);
+// console.log(`GET => elemento: ${JSON.stringify(elemento)}`);

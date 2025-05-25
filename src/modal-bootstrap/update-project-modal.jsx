@@ -1,34 +1,54 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import InputField from "../addProyect-form/input-field"
+import { actualizarRegistro } from "../funciones-servidor/funciones-servidor"
 
-function ModalForUpdate({project, date, member, budget, status, description}){
-  const [updatedTitle, setUpdatedTitle] = useState(project)
-  const [updatedDate, setUpdatedDate] = useState(date)
-  const [updatedMember, setUpdatedMember] = useState(member)
-  const [updatedBudget, setUpdatedBudget] = useState(budget)
-  const [updatedStatus, setUpdatedStatus] = useState(status)
-  const [updatedDescription, setUpdatedDescription] = useState(description)
+function ModalForUpdate({elementId, dataFromAPI}){
 
-  const handleChangeUpdateButton = () => {
+  const [updatedTitle, setUpdatedTitle] = useState("")
+  const [updatedDate, setUpdatedDate] = useState("")
+  const [updatedMember, setUpdatedMember] = useState("")
+  const [updatedBudget, setUpdatedBudget] = useState("")
+  const [updatedStatus, setUpdatedStatus] = useState("")
+  const [updatedDescription, setUpdatedDescription] = useState("")
+  const [changes, setChanges] = useState({})
 
+  const handleChangeUpdateButton = (event) => {
+    const { id, value } = event.target
+    if(id === `updateTitle${elementId}`) setUpdatedTitle(value)
+    if(id === `updateDate${elementId}`) setUpdatedDate(value)
+    if(id === `updateMember${elementId}`) setUpdatedMember(value)
+    if(id === `updateBudget${elementId}`) setUpdatedBudget(value)
+    if(id === `updateStatus${elementId}`) setUpdatedStatus(value)
+    if(id === `updateDescription${elementId}`) setUpdatedDescription(value)
+    const toChange = {
+      project: updatedTitle,
+      date: updatedDate, member: updatedMember,
+      budget: updatedBudget, status: updatedStatus,
+      description: updatedDescription
+    }
+    setChanges(toChange)
   }
+
+  useEffect(()=>{
+    console.log(changes)
+  }, [changes])
 
   return(
     <>
-      <div className="modal fade" id="modalToUpdateProject" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal fade" id={`modalToUpdateProject${elementId}`} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel">{`Working on: ${project}`}</h1>
+              <h1 className="modal-title fs-5" id={`exampleModalLabel${elementId}`}>{`Working on: ${dataFromAPI.project}`}</h1>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
-              <InputField inputType="text" id="updateTitle" placeholder={project} value="" funcionOnChange={handleChangeUpdateButton}/>
-              <InputField inputType="date" id="date" placeholder={date} value="" funcionOnChange={handleChangeUpdateButton}/>
-              <InputField inputType="text" id="updateMember" placeholder={member} value="" funcionOnChange={handleChangeUpdateButton}/>
-              <InputField inputType="number" id="updateBudget" placeholder={budget} value="" funcionOnChange={handleChangeUpdateButton}/>
-              <InputField inputType="text" id="updateStatus" placeholder={status} value="" funcionOnChange={handleChangeUpdateButton}/>
-              <textarea className="input rounded mt-1" placeholder={description} id="updateDescription" value="" onChange={handleChangeUpdateButton}></textarea>
+              <InputField inputType="text" id={`updateTitle${elementId}`} placeholder={dataFromAPI.project} value={updatedTitle} funcionOnChange={handleChangeUpdateButton}/>
+              <InputField inputType="date" id={`updateDate${elementId}`} placeholder={dataFromAPI.date} value={updatedDate} funcionOnChange={handleChangeUpdateButton}/>
+              <InputField inputType="text" id={`updateMember${elementId}`} placeholder={dataFromAPI.member} value={updatedMember} funcionOnChange={handleChangeUpdateButton}/>
+              <InputField inputType="number" id={`updateBudget${elementId}`} placeholder={dataFromAPI.budget} value={updatedBudget} funcionOnChange={handleChangeUpdateButton}/>
+              <InputField inputType="text" id={`updateStatus${elementId}`} placeholder={dataFromAPI.status} value={updatedStatus} funcionOnChange={handleChangeUpdateButton}/>
+              <textarea className="input rounded mt-1" placeholder={dataFromAPI.description} value={updatedDescription} id={`updateDescription${elementId}`} onChange={handleChangeUpdateButton}></textarea>
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>

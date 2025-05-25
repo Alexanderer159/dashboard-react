@@ -27,6 +27,7 @@ function App() {
 
   const handleDelete = (id) => {
     borrarRegistro(id)
+    console.log(`Deleted item with id: ${id}`);
     location.reload() // Solución Temporal Cutre
   };
 
