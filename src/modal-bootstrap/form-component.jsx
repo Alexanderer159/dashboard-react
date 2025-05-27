@@ -1,10 +1,10 @@
 import NewProjectForm from '../addProyect-form/form-for-project.jsx'
 import { useEffect, useState } from 'react'
-import "./modal-component.css"
+import "./form-component.css"
 import uuid from 'react-uuid'
 import { crearRegistro, traerLista } from '../funciones-servidor/funciones-servidor.js'
 
-function ModalComponent ({totalbudget, setlistas}){
+function FormComponent ({totalbudget, setlistas}){
   const [titulo, setTitulo] = useState("")
   const [autor, setAutor] = useState("")
   const [fecha, setFecha] = useState("")
@@ -54,14 +54,7 @@ function ModalComponent ({totalbudget, setlistas}){
 
   return(
     <>
-    <div className="modal fade" id="modalFormProject" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div className="modal-dialog modal-dialog-centered">
-        <div className="modal-content border-0 rounded-5">
-          <div className="modal-header">
-            <h1 className="modal-title fs-5" id="exampleModalLabel">Create Project</h1>
-            <button type="button" className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div className="modal-body">
+          <div className="form-body">
             <NewProjectForm 
               titulo={titulo} obtenerTitulo={setTitulo}
               autor={autor} obtenerAutor={setAutor}
@@ -70,17 +63,14 @@ function ModalComponent ({totalbudget, setlistas}){
               descripcion={descripcion} obtenerDescripcion={setDescripcion}
             />
           </div>
-          <div className="modal-footer bg-dark">
+          <div className="form-footer bg-dark">
             <div className='foot w-100 d-flex justify-content-center gap-3 align-items-center mt-3'>
               <button id='boton-enviar' className='rounded botones' onClick={addLista}>Enviar</button>
               <button id='boton-reset' className='rounded botones' onClick={resetButton}>Reset</button>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
     </>
   )
 }
 
-export default ModalComponent
+export default FormComponent

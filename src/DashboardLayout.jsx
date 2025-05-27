@@ -1,6 +1,7 @@
 import SearchBar from "./search-bar/search-bar";
+import { Route, Routes, Link } from "react-router-dom";
 import ListGenerator from './Generador-Lista';
-import ModalComponent from './modal-bootstrap/modal-component';
+import FormComponent from './modal-bootstrap/form-component';
 
 const DashboardLayout = (props) => {
   const {listaDatos, setlistas,  
@@ -13,7 +14,16 @@ const DashboardLayout = (props) => {
       <div className="row">
         <div className="col-2 p-0">
           <nav className="sidebar d-flex flex-column vh-100 text-white p-3 nav flex-column">
-            {["Dashboard", "Orders", "Products", "Customers", "Reports", "Integrations"].map((item, i) => (
+            <Link to="/new">
+              <button type="button" className="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#modalFormProject">
+                New Project
+              </button>
+            </Link>
+            <Link to="/dashboard">
+              <p className="nav-link">Dashboard</p>
+            </Link>
+
+            {["Orders", "Products", "Customers", "Reports", "Integrations"].map((item, i) => (
               <a key={i} className="nav-link" href="#">{item}</a>
             ))}
             <h6 className="text-uppercase text-white-50 mt-4 small">Saved Reports</h6>
@@ -31,16 +41,12 @@ const DashboardLayout = (props) => {
             <DashboardCard bg="danger" label="New Customers" value="120" />
           </div>
 
-          <ModalComponent
-            totalbudget={totalbudget}
-            setlistas={setlistas}
-          />
-
-          <ListGenerator
-            listaDatos={listaDatos}
-            setlista={setlistas}
-            handleDelete={onDelete}
-          />
+            <Routes>
+              <Route path= "/" element={<ListGenerator listaDatos={listaDatos} setlista={setlistas} handleDelete={onDelete} />} />
+              <Route path= "/dashboard" element={<ListGenerator listaDatos={listaDatos} setlista={setlistas} handleDelete={onDelete} />} />
+              <Route path="/new" element={<FormComponent totalbudget={totalbudget} setlistas={setlistas}/>} />
+              <Route render={() => <h1>Not Found ☹️</h1>} />
+            </Routes>
 
         </div>
       </div>
