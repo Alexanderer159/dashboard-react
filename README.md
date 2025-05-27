@@ -1,8 +1,5 @@
 # Dashboard
-### Realizado por 
+### Realizado por
+- Adr1Est
 - Alexanderer159
 - Jonathan0318
-- Adr1Est
-
-### Estrategia
-- 
