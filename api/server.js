@@ -5,12 +5,40 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const mockData = { key: '2352342zsx423', project: 'Proyecto de prueba', date: '2025-06-23', member: 'Adri', budget: '34573', status: 'WIP', description: 'Esto es un proyecto de prueba.' }
+
 // Almacenamiento en memoria
-let projects = [];
+let projects = [mockData];
 
 // Obtener la lista de proyectos
 app.get('/projects', (req, res) => {
   res.json(projects);
+});
+
+// Obtener la lista de proyectos por índice
+app.get('/projects/:index', (req, res) => {
+  const id = parseInt(req.params.index);
+  const proyectoEncontrado = projects.find((proyecto, index) => index === id);
+  if (!proyectoEncontrado) return res.status(404).send('Error 404: Proyecto no encontrado');
+  res.json(proyectoEncontrado);
+})
+
+// Otro URL param
+app.get('/saluda', (req, res) => {
+  const saludo = `
+    <h1>Hola</h1>
+    <p>Desde el servidor ExpressJS</p>
+    `
+  res.send(saludo)
+});
+
+app.get('/saluda/:nombre', (req, res) => {
+  const nombreQueVieneDeLaURL = req.params.nombre;
+  const saludo = `
+    <h1>Hola ${nombreQueVieneDeLaURL}</h1>
+    <p>Desde el servidor ExpressJS</p>
+    `
+  res.send(saludo)
 });
 
 // Crear un nuevo proyecto

@@ -1,7 +1,7 @@
 import Lista from "./lista"
 import "./Generador-Lista.css"
 
-function ListGenerator({listaDatos, handleDelete}) {  
+function ListGenerator({listaDatos, setlista, handleDelete}) {  
 
   return (
     <>
@@ -21,14 +21,18 @@ function ListGenerator({listaDatos, handleDelete}) {
       </div>
 
       {listaDatos.map((props, index) => (
-        <Lista key={props.key} 
-        project={props.project}
-        date={props.date}
-        member={props.member}
-        budget={props.budget}
-        status={props.status} 
-        id={index} 
-        handleDelete={handleDelete}/>
+        <Lista 
+          key={props.key} 
+          project={props.project}
+          date={props.date}
+          member={props.member}
+          budget={props.budget}
+          status={props.status} 
+          id={index} 
+          description={props.description}
+          handleDelete={handleDelete}
+          setlista={setlista}
+        />
       ))}
     </>
   );
