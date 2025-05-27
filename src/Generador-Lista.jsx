@@ -5,12 +5,6 @@ function ListGenerator({listaDatos, setlista, handleDelete}) {
 
   return (
     <>
-      <div className="form d-flex m-2">
-        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalFormProject">
-          New Project
-        </button>
-      </div>
-
       <div className="item d-flex flex-row align-items-center m-2 p-3 fs-5 rounded-1">
         <p>Project</p> 
         <p>Date</p> 
