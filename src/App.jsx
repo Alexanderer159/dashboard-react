@@ -32,6 +32,7 @@ function App() {
   }
 
   const handleDelete = async (id) => {
+    alert("Item Deleted")
     await borrarRegistro(id)
     console.log(`Deleted item with id: ${id}`);
     await obtenerLista();

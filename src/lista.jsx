@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import "./lista.css"
 import ModalForUpdate from "./modal-bootstrap/update-project-modal"
  import { traerElementoPorId } from "./funciones-servidor/funciones-servidor"
+ import { Link } from "react-router-dom";
 
 function Lista({project, date, member, budget, status, id, description, handleDelete, setlista}) {
   const [individualData, setIndividualData] = useState({})
@@ -24,7 +25,7 @@ function Lista({project, date, member, budget, status, id, description, handleDe
       <p>{date}</p> 
       <p>{member}</p> 
       <p>{budget}</p> 
-      <p>{status}</p> 
+      <p>{status}</p>
       <div className="dropdown">
         <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
           Action
@@ -34,9 +35,9 @@ function Lista({project, date, member, budget, status, id, description, handleDe
             <button title={description} className="dropdown-item">Descripción</button>
           </li>
           <li>
-            <button type="button" className="dropdown-item" data-bs-toggle="modal" data-bs-target={`#modalToUpdateProject${id}`}>
-              Editar
-            </button>
+      <Link to="/editItemId">
+        <button className="dropdown-item">Edit Project</button>
+      </Link> 
           </li>
           <li>
             <button className="dropdown-item" onClick={() => handleDelete(id)}>Delete Project</button>

@@ -2,6 +2,7 @@ import SearchBar from "./search-bar/search-bar";
 import { Route, Routes, Link } from "react-router-dom";
 import ListGenerator from './Generador-Lista';
 import FormComponent from './modal-bootstrap/form-component';
+import ModalForUpdate from "./modal-bootstrap/update-project-modal";
 
 const DashboardLayout = (props) => {
   const {listaDatos, setlistas,  
@@ -45,6 +46,7 @@ const DashboardLayout = (props) => {
               <Route path= "/" element={<ListGenerator listaDatos={listaDatos} setlista={setlistas} handleDelete={onDelete} />} />
               <Route path= "/dashboard" element={<ListGenerator listaDatos={listaDatos} setlista={setlistas} handleDelete={onDelete} />} />
               <Route path="/new" element={<FormComponent totalbudget={totalbudget} setlistas={setlistas}/>} />
+              <Route path="/editItemId" element={<ModalForUpdate />} />
               <Route render={() => <h1>Not Found ☹️</h1>} />
             </Routes>
 

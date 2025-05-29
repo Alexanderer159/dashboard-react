@@ -45,14 +45,11 @@ function ModalForUpdate({elementId, dataFromAPI, setlista}){
 
   return(
     <>
-      <div className="modal fade" id={`modalToUpdateProject${elementId}`} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
+            <div>
               <h1 className="modal-title fs-5" id={`exampleModalLabel${elementId}`}>{`Working on: ${dataFromAPI.project}`}</h1>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div className="modal-body">
+            <div>
               <InputField inputType="text" id={`updateTitle${elementId}`} placeholder={project} value={newTitle || ""} funcionOnChange={handleChangeUpdateButton}/>
               <InputField inputType="date" id={`updateDate${elementId}`} placeholder={date} value={newDate || ""} funcionOnChange={handleChangeUpdateButton}/>
               <InputField inputType="text" id={`updateMember${elementId}`} placeholder={member} value={newMember || ""} funcionOnChange={handleChangeUpdateButton}/>
@@ -60,13 +57,10 @@ function ModalForUpdate({elementId, dataFromAPI, setlista}){
               <InputField inputType="text" id={`updateStatus${elementId}`} placeholder={status} value={newStatus || ""} funcionOnChange={handleChangeUpdateButton}/>
               <textarea className="input rounded mt-1" placeholder={description} value={newDescription || ""} id={`updateDescription${elementId}`} onChange={handleChangeUpdateButton}></textarea>
             </div>
-            <div className="modal-footer">
+            <div>
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               <button type="button" className="btn btn-primary" onClick={handleUpdate}>Save changes</button>
             </div>
-          </div>
-        </div>
-      </div>
     </>
   )
 }
